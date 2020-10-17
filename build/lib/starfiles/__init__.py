@@ -4,7 +4,7 @@ Starfiles
 Simplify starfiles, if it wasn't simple enough already
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __author__ = 'DwifteJB'
 __credits__ = 'Quixthe2nd'
 
