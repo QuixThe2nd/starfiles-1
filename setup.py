@@ -4,7 +4,7 @@ with open('README.md', 'r') as fh:
    long_description = fh.read()
 setup(
     name='starfiles',
-    version='1.0.2',    
+    version='1.0.3',    
     description='Simplify starfiles, if it was not simple already.',
     url='https://github.com/dwiftejb/starfiles',
     author='DwifteJB',

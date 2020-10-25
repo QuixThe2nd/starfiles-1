@@ -15,9 +15,6 @@ import os
 import time
 import sys
   
-def profile(p):
-  global profile
-  p = profile
 
 def upload(filename):
   try:
@@ -27,11 +24,7 @@ def upload(filename):
   except FileNotFoundError as e:
     print(f"[ ERROR ] : {e}")
     return f"[ ERROR ] : {e}"
-  if profile is None:
-    response = requests.post('https://starfiles.co/api/upload/upload_file', files=files)
-  else:
-    response = requests.post('https://starfiles.co/api/upload/upload_file?profile={profile}', files=files)
-    pass
+  response = requests.post('https://starfiles.co/api/upload/upload_file?profile={profile}', files=files)
   api = json.loads(response.text)
   file = api['file']
   link = f"https://starfiles.co/api/direct/{file}"
