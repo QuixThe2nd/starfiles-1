@@ -24,7 +24,7 @@ def upload(filename):
   except FileNotFoundError as e:
     print(f"[ ERROR ] : {e}")
     return f"[ ERROR ] : {e}"
-  response = requests.post('https://starfiles.co/api/upload/upload_file?profile={profile}', files=files)
+  response = requests.post('https://starfiles.co/api/upload/upload_file', files=files)
   api = json.loads(response.text)
   file = api['file']
   link = f"https://starfiles.co/api/direct/{file}"
