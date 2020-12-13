@@ -24,10 +24,10 @@ def upload(filename):
   except FileNotFoundError as e:
     print(f"[ ERROR ] : {e}")
     return f"[ ERROR ] : {e}"
-  response = requests.post('https://starfiles.co/api/upload/upload_file', files=files)
+  response = requests.post('https://api.starfiles.co/upload/upload_file', files=files)
   api = json.loads(response.text)
   file = api['file']
-  link = f"https://starfiles.co/api/direct/{file}"
+  link = f"https://api.starfiles.co/direct/{file}"
   size = round(int(os.path.getsize(filename)) / 1000000, 2)
   name = re.sub(r'^.*?/', '', filename)
   print("\n")
@@ -36,5 +36,5 @@ def upload(filename):
   print(f"Size: {size}mb")
   print(f"Download Link:\nRegular: https://starfiles.co/file/{file}\nDirect: {link}")
   if re.search("ipa$", filename):
-    print(f"Plist: https://starfiles.co/api/installipa/{file}\nInstall URL: itms-services://?action=download-manifest&url=https://starfiles.co/api/installipa/{file}")
+    print(f"Plist: https://api.starfiles.co/installipa/{file}\nInstall URL: itms-services://?action=download-manifest&url=https://api.starfiles.co/installipa/{file}")
   return link
