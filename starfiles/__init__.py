@@ -24,10 +24,10 @@ def upload(filename):
   except FileNotFoundError as e:
     print(f"[ ERROR ] : {e}")
     return f"[ ERROR ] : {e}"
-  response = requests.post('https://starfiles.co/api/upload/upload_file', files=files)
+  response = requests.post('https://api.starfiles.co/upload/upload_file', files=files)
   api = json.loads(response.text)
   file = api['file']
-  link = f"https://starfiles.co/api/direct/{file}"
+  link = f"https://api.starfiles.co/direct/{file}"
   size = round(int(os.path.getsize(filename)) / 1000000, 2)
   name = re.sub(r'^.*?/', '', filename)
   print("\n")
